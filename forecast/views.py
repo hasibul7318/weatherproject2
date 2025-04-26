@@ -205,8 +205,8 @@ def weather_view(request):
         return render(request, "weather.html", {"error": "Weather data unavailable"})
 
     # Load historical weather data
-    csv_path = os.path.join("D:\\", "machinelearng03", "weather.csv")
-
+    csv_path = os.path.join(settings.BASE_DIR, 'forecast', 'static', 'weather.csv')
+     df = pd.read_csv(csv_path)
     historical_data = read_historical_data(csv_path)
 
     # Prepare data for training
